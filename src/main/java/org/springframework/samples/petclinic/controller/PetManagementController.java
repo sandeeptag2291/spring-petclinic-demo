@@ -1,7 +1,6 @@
 package org.springframework.samples.petclinic.controller;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -31,12 +30,6 @@ public class PetManagementController {
 	public ResponseEntity<Pets> getPetById(@PathVariable int id) {
 		return petService.getPetById(id).map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
 	}
-
-	// @GetMapping("/getAllPets")
-	// public ResponseEntity<List<Pets>> getAllPets() {
-	// return ((List<Pets>)
-	// petService.getAllPets()).map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
-	// }
 
 	@GetMapping("/getAllPets")
 	public List<Pets> getAllPets() {
